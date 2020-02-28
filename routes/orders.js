@@ -7,6 +7,19 @@ const {check, validationResult} = require('express-validator/check');
 
 const Order = require('../models/Orders');
 
+
+// @route   get api/orders
+// @desc    get all orders
+// @access  Public
+router.get('/', async (req, res) => {
+    try{
+        const orders = await Order.find();
+        res.json(orders);
+    }catch(err){
+        res.status(500).send('Server error');
+    }
+})
+
 // @route   POST api/orders
 // @desc    Submit an order
 // @access  Public
@@ -53,7 +66,6 @@ router.post(
             res.json(payload);
 
         }catch(err){
-            console.log('err.message');
             return res.status(500).send('Server error');
         }
     }
