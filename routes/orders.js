@@ -27,10 +27,11 @@ router.post(
     '/', 
     [
         check('orderNum' , 'Order number is required').not().isEmpty(),
+        check('description' , 'Description is required').not().isEmpty(),
+        check('recipient' , 'Recipient is required').not().isEmpty(),
         check('deliveryAddress' , 'Delivery Address is required').not().isEmpty(),
         check('deliveryPhone' , 'Delivery Phone is required').not().isEmpty(),
-        check('customer' , 'Customer is required').not().isEmpty(),
-        check('customerPhone' , 'Customer Phone is required').not().isEmpty(),
+        check('orderTotal' , 'Order total is required').not().isEmpty()
     ],
     async (req, res) => {
         const errors = validationResult(req);
@@ -40,32 +41,38 @@ router.post(
 
         const {
             orderNum,
+            description,
+            cardMessage,
+            specialInstructions,
+            recipient,
             deliveryAddress,
             deliveryPhone,
             customer,
-            customerPhone
+            customerPhone,
+            orderTotal
         } = req.body;
 
         
         try{
             let order = new Order({
                 orderNum,
+                description,
+                cardMessage,
+                specialInstructions,
+                recipient,
                 deliveryAddress,
                 deliveryPhone,
                 customer,
-                customerPhone
+                customerPhone,
+                orderTotal
             })
 
             await order.save();
-            const payload = {
-                order:{
-                    id: order.id
-                }
-            }
 
-            res.json(payload);
+            res.json(order);
 
         }catch(err){
+            console.log(err);
             return res.status(500).send('Server error');
         }
     }

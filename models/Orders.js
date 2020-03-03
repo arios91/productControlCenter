@@ -5,6 +5,16 @@ const OrderSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    description:{
+        type: String,
+        required: true
+    },
+    cardMessage:{
+        type: String,
+    },
+    specialInstructions:{
+        type: String
+    },
     status:{
         type: String,
         default: 'new'
@@ -17,6 +27,10 @@ const OrderSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    recipient:{
+        type: String,
+        required: true
+    },
     deliveryAddress:{
         type: String,
         required: true
@@ -27,16 +41,16 @@ const OrderSchema = new mongoose.Schema({
     },
     customer:{
         type: String,
-        required: true,
     },
     customerPhone:{
         type: String,
-        required: true,
     },
     driver:{
         type: String
+    },
+    orderTotal:{
+        type: Number
     }
-
 });
 
 module.exports = Order = mongoose.model('order', OrderSchema);
