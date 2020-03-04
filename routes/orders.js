@@ -48,7 +48,7 @@ router.post(
             recipient,
             deliveryAddress,
             deliveryPhone,
-            dliveryDate,
+            deliveryDate,
             customer,
             customerPhone,
             orderTotal
