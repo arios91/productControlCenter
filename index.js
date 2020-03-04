@@ -13,7 +13,7 @@ connectDB();
 //initialize middleware
 app.use(express.json({extended: false}));
 
-app.get('/', (req, res) => res.send('Hello World! x2'));
+// app.get('/', (req, res) => res.send('Hello World! x2'));
 
 app.use('/orders', require('./routes/orders'));
 app.use('/auth', require('./routes/auth'));
