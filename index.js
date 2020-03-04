@@ -8,7 +8,7 @@ const app = express();
 //currently open to anyone, need to restrict it when done with front end
 app.use(cors());
 
-// connectDB();
+connectDB();
 
 //initialize middleware
 // app.use(express.json({extended: false}));
