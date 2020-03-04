@@ -31,6 +31,7 @@ router.post(
         check('recipient' , 'Recipient is required').not().isEmpty(),
         check('deliveryAddress' , 'Delivery Address is required').not().isEmpty(),
         check('deliveryPhone' , 'Delivery Phone is required').not().isEmpty(),
+        check('deliveryDate' , 'Delivery Date is required').not().isEmpty(),
         check('orderTotal' , 'Order total is required').not().isEmpty()
     ],
     async (req, res) => {
@@ -47,6 +48,7 @@ router.post(
             recipient,
             deliveryAddress,
             deliveryPhone,
+            dliveryDate,
             customer,
             customerPhone,
             orderTotal
@@ -62,6 +64,7 @@ router.post(
                 recipient,
                 deliveryAddress,
                 deliveryPhone,
+                deliveryDate,
                 customer,
                 customerPhone,
                 orderTotal
