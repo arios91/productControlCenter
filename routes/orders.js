@@ -39,6 +39,7 @@ router.post(
         if(!errors.isEmpty()){
             return res.status(400).json({errors: errors.array()});
         }
+        console.log(req.body);
 
         const {
             orderNum,
@@ -56,6 +57,22 @@ router.post(
 
         
         try{
+            if(req.body._id && req.body.status){
+                console.log('in here');
+                let existingOrder = await Order.findById(req.body._id);
+                if(existingOrder){
+                    console.log('found existing order');
+                    console.log(existingOrder);
+                    const upd = {};
+                    upd.status = req.body.status;
+                    existingOrder = await Order.findOneAndUpdate(
+                        {_id: req.body._id},
+                        {$set: upd},
+                        {new: true}
+                    );
+                    return res.json(existingOrder);
+                }
+            }
             let order = new Order({
                 orderNum,
                 description,
