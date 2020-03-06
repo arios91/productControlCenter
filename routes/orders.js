@@ -65,6 +65,10 @@ router.post(
                     console.log(existingOrder);
                     const upd = {};
                     upd.status = req.body.status;
+                    upd.statusDate = new Date();
+                    if(req.body.driver){
+                        upd.driver = req.body.driver;
+                    }
                     existingOrder = await Order.findOneAndUpdate(
                         {_id: req.body._id},
                         {$set: upd},
