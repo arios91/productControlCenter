@@ -5,6 +5,9 @@ const OrderSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    orderCount:{
+        type: Number
+    },
     description:{
         type: String,
         required: true
@@ -53,6 +56,15 @@ const OrderSchema = new mongoose.Schema({
         type: String
     },
     orderTotal:{
+        type: Number
+    },
+    distanceFromShop:{
+        type: Number
+    },
+    distanceFromPrevious:{
+        type: Number
+    },
+    distanceToNext:{
         type: Number
     }
 });
