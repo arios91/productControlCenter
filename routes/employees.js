@@ -22,6 +22,21 @@ router.get('/', auth, async (req, res) => {
     }
 })
 
+
+
+// @route   get /employees/:type
+// @desc    get employees by type
+// @access  Public for now, will change to private
+router.get('/:type', async (req, res) => {
+    try {
+        const employees = await Employee.find({type: req.params.type, active: true});
+        res.json(employees);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Server error');
+    }
+})
+
 // @route   delete /employees/:empId
 // @desc    delete employee by id
 // @access  Private
