@@ -55,6 +55,9 @@ const OrderSchema = new mongoose.Schema({
     driver:{
         type: String
     },
+    driverId:{
+        type: String
+    },
     orderTotal:{
         type: Number
     },

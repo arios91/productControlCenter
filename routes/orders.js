@@ -24,6 +24,9 @@ router.get('/', async (req, res) => {
     }
 })
 
+// @route   get api/orders/count
+// @desc    get all orders
+// @access  Public
 router.get('/count', async (req,res) => {
     try {
         let orderCount = await OrderCounter.findOne();
@@ -34,6 +37,19 @@ router.get('/count', async (req,res) => {
     }
 })
 
+
+// @route   get api/orders/driverId
+// @desc    get all orders
+// @access  Public for now, will change to private
+router.get('/:driverId', async (req, res) => {
+    try {
+        const orders = await Order.find({driverId: req.params.driverId, status: "inDelivery"});
+        res.json(orders);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Server error');
+    }
+})
 
 
 
@@ -65,6 +81,8 @@ const getDistance = (destination) => {
     });
     return p1;
 }
+
+
 
 
 // @route   POST api/orders
@@ -112,6 +130,7 @@ router.post(
                     upd.statusDate = new Date();
                     if(req.body.driver){
                         upd.driver = req.body.driver;
+                        upd.driverId = req.body.driverId;
                     }
                     existingOrder = await Order.findOneAndUpdate(
                         {_id: req.body._id},
