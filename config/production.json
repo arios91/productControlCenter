@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://arios91:Ar496139!1@cluster0-ppfyn.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtSecret": "nvFqfSE5z4UXcKX9DZyLmh4y7URBC9NCwUl9S4pVuWYSFKgqFgxSVVrboD9P8XrJN3yKJSLJxtb6uMsdZrUMtbN1MqlIx_EyZfDKAA8pEoLtgMpvjt5oUGKdUIWB0TXGlSWnh-2AD0y_aB6XuKtfXN1_m5f17XPY-LP5E_i_IXffJEpHUwlj-U-JwyYRmD-URMgvU1vbTCMpVEqS08jWCDMkf5U2XuPkLerfs1G2sxsDdO6qWOhQUnMnyQsjakRK6nWFUf8J_cYj_n6C_u9SbwDPX6SEIUk8t0HX3Bu_fX-G8qC8kRG_zVMB92AJNcgDvCfGhE8BpRtoRNQvh844IQ"
+}
