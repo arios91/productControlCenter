@@ -13,7 +13,7 @@ const User = require('../models/Users');
 // @route   get /employees
 // @desc    get all employees
 // @access  Private
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
     try{
         const employees = await Employee.find();
         res.json(employees);
