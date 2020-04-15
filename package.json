@@ -4,8 +4,8 @@
   "description": "control center for delivery system",
   "main": "index.js",
   "scripts": {
-    "start": "node server",
-    "server": "nodemon server"
+    "start": "node index.js",
+    "server": "nodemon index.js"
   },
   "author": "Alejandro Rios",
   "license": "ISC",
