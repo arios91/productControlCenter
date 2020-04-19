@@ -69,6 +69,10 @@ const OrderSchema = new mongoose.Schema({
     },
     distanceToNext:{
         type: Number
+    },
+    bloomOrder:{
+        type: Boolean,
+        default: false
     }
 });
 

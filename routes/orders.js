@@ -123,8 +123,11 @@ router.post(
         
         try{
             if(req.body._id && req.body.status){
+                console.log('in update');
                 let existingOrder = await Order.findById(req.body._id);
+                console.log(existingOrder);
                 if(existingOrder){
+                    console.log('existing order');
                     const upd = {};
                     upd.status = req.body.status;
                     upd.statusDate = new Date();
@@ -132,6 +135,9 @@ router.post(
                         upd.driver = req.body.driver;
                         upd.driverId = req.body.driverId;
                     }
+
+                    console.log('tmp order');
+                    console.log(upd);
                     existingOrder = await Order.findOneAndUpdate(
                         {_id: req.body._id},
                         {$set: upd},

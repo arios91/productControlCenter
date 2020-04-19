@@ -73,9 +73,34 @@ router.post(
         }
         console.log(req.body);
 
-        const {userId, name, type, access} = req.body;
+        const {
+            userId, 
+            name, 
+            type, 
+            access
+        } = req.body;
 
         try {
+            if(req.body._id && req.body.name){
+                console.log('in update')
+                let existingEmployee = await Employee.findById(req.body._id);
+                console.log(existingEmployee);
+                if(existingEmployee){
+                    console.log('existing employee');
+                    const upd = {};
+                    upd.type = req.body.type;
+                    upd.active = req.body.active;
+                    console.log('tmp employee');
+                    console.log(upd);
+                    existingEmployee = await Employee.findByIdAndUpdate(
+                        {_id: req.body._id},
+                        {$set: upd},
+                        {new: true}
+                    );
+
+                    return res.json(existingEmployee);
+                }
+            }
             let user = null;
             if(userId){
                 console.log('in here');
