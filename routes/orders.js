@@ -94,7 +94,6 @@ router.post(
         check('description' , 'Description is required').not().isEmpty(),
         check('recipient' , 'Recipient is required').not().isEmpty(),
         check('deliveryAddress' , 'Delivery Address is required').not().isEmpty(),
-        check('deliveryPhone' , 'Delivery Phone is required').not().isEmpty(),
         check('deliveryDate' , 'Delivery Date is required').not().isEmpty(),
         check('orderTotal' , 'Order total is required').not().isEmpty()
     ],
