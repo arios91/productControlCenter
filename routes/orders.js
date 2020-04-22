@@ -91,7 +91,6 @@ const getDistance = (destination) => {
 router.post(
     '/', 
     [
-        check('orderNum' , 'Order number is required').not().isEmpty(),
         check('description' , 'Description is required').not().isEmpty(),
         check('recipient' , 'Recipient is required').not().isEmpty(),
         check('deliveryAddress' , 'Delivery Address is required').not().isEmpty(),
@@ -118,6 +117,7 @@ router.post(
             deliveryDate,
             customer,
             customerPhone,
+            bloomOrder,
             orderTotal
         } = req.body;
         
@@ -168,6 +168,7 @@ router.post(
                 customer,
                 customerPhone,
                 orderTotal,
+                bloomOrder,
                 distanceFromShop
             })
 

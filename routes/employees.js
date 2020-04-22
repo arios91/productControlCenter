@@ -29,7 +29,9 @@ router.get('/', async (req, res) => {
 // @access  Public for now, will change to private
 router.get('/:type', async (req, res) => {
     try {
-        const employees = await Employee.find({type: req.params.type, active: true});
+
+        const typeRegex = new RegExp(req.params.type, 'i');
+        const employees = await Employee.find({type: typeRegex, active: true});
         res.json(employees);
     } catch (error) {
         console.log(error);
@@ -71,6 +73,7 @@ router.post(
         if(!errors.isEmpty()){
             return res.status(400).json({errors: errors.array()});
         }
+        console.log('request')
         console.log(req.body);
 
         const {
