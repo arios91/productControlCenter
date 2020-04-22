@@ -149,11 +149,14 @@ router.post(
             }
             
             let orderCounter = await OrderCounter.findOne();
-            let distanceFromShop = await getDistance(deliveryAddress);
-            if(distanceFromShop){
-                console.log(distanceFromShop);
+            let distanceFromShop = 100;
+            if(deliveryAddress !== 'pickup'){
+                let distanceFromShop = await getDistance(deliveryAddress);
+                if(distanceFromShop){
+                    console.log(distanceFromShop);
+                }
+                console.log('out of distanceMatrix');
             }
-            console.log('out of distanceMatrix');
 
             let order = new Order({
                 orderNum,
