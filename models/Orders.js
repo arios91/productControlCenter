@@ -38,8 +38,7 @@ const OrderSchema = new mongoose.Schema({
         required: true
     },
     deliveryPhone:{
-        type: String,
-        required: true
+        type: String
     },
     deliveryDate:{
         type: Date,
