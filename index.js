@@ -50,8 +50,6 @@ app.use('/test2',
                 res.json(body);
             });
 
-            // const testObject = {name: "john", lastName:"doe2"};
-            // res.json(testObject);
         }catch(err){
             res.status(500).send('Server error');
         }

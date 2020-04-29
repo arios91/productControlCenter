@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const config = require('config');
 const {check, validationResult} = require('express-validator');
 const distance = require('google-distance-matrix');
     distance.key('AIzaSyCXjfp9HEYuq1W9m2H_RI7nFzpShH-epMQ')
