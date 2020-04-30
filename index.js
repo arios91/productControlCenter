@@ -18,7 +18,7 @@ const app = express();
 
 //currently open to anyone, need to restrict it when done with front end
 app.use(cors({
-    origin: 'http://alex-rios.me'
+    origin: 'https://petalos-y-arte-cc-client.herokuapp.com'
 }));
 
 connectDB();
