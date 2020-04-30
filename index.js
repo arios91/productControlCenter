@@ -4,18 +4,22 @@ var cors = require('cors')
 const PORT = process.env.PORT || 5000;
 const router = express.Router();
 var request = require("request");
+const keys = require('./config/keys');
 
 //Include SendInBlueLibrary
 var lib = require('sib-api-v3-sdk');
 var defaultClient = lib.ApiClient.instance;
 //Instantiate the client
 var apiKey = defaultClient.authentications['api-key'];
-apiKey.apiKey = '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';
+apiKey.apiKey = keys.blueKey;
 
 const app = express();
 
+
 //currently open to anyone, need to restrict it when done with front end
-app.use(cors());
+app.use(cors({
+    origin: 'http://alex-rios.me'
+}));
 
 connectDB();
 
@@ -40,7 +44,7 @@ app.use('/test2',
                 url: 'https://api.sendinblue.com/v3/account',
                 headers: {
                   accept: 'application/json',
-                  'api-key': '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'
+                  'api-key': keys.blueKey
                 }
               };
               
